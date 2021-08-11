@@ -28,7 +28,7 @@ async function renderProduits() {
                             <div class="card-body">
                             <h2>${Produit.name} </h2>
                             <p class="price">${Produit.price}</p>
-                            <a href="product.html" id="Produit__link" class="Produit__link">voir l'article</a>
+                            <a href="product.html?${"._id"}" id="Produit__link" class="Produit__link">voir l'article</a>
                         </div>
                         </div>
                         </div>
@@ -43,14 +43,3 @@ async function renderProduits() {
 }
 
 renderProduits();
-
-function displayProduit(produit) {
-    const templateElt = document.getElementById("templateProduit")
-    const cloneElt = document.importNode(templateElt.content, true)
-
-    cloneElt.getElementById("card").textContent = produit.card
-    cloneElt.getElementById("card").textContent = produit.body
-    cloneElt.getElementById("card").href += "?id=" + produit.id
-
-    document.getElementById("main").appendChild(cloneElt)
-}
