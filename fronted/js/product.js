@@ -29,18 +29,20 @@
 //  console.log(search_params.get('id'))
 //}
 
-let params = new URL(document.location).searchParams;
-let id = params.get("id");
 
 //function ProduitById(id) {
 //let rep = await fetch("http://localhost:3000/api/teddies/" + id, { method: 'GET' });
 //let response = await rep.json();
 //return reponse;
 //}
+
+let params = new URL(document.location).searchParams;
+let id = params.get("id");
+
 async function getProduits(id) {
     let url = 'Produits.json';
     try {
-        let res = await fetch("http://localhost:3000/api/teddies/" + id, { method: 'GET' })
+        let res = await fetch("http://localhost:3000/api/teddies/${productId}", { method: 'GET' })
         return await res.json();
 
     } catch (error) {

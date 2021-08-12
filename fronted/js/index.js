@@ -27,7 +27,7 @@ async function renderProduits() {
                             <img src="${Produit.imageUrl}" alt="ours" class="img-thumbnail">
                             <div class="card-body">
                             <h2>${Produit.name} </h2>
-                            <p class="price">${Produit.price}</p>
+                            <p class="price">${Produit.price/100}.00€</p>
                             <a href="product.html?id=${Produit._id} id="Produit__link" class="Produit__link">voir l'article</a>
                         </div>
                         </div>
