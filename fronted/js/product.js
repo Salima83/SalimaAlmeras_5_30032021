@@ -12,9 +12,21 @@
 //const id = urlSearchParams.get("id");
 //console.log(id);
 
-//let url = 'http://localhost:3000/api/teddies/${Produit.id}';
-//fetch("http://localhost:3000/api/teddies/${Produit.id}")
-//  .then(response => response.json())
+//let url = ('http://localhost:3000/api/teddies/' + href);
+//fetch("http://localhost:3000/api/teddies/" + href)
+//href = search_params.get('id')
+//.then(response => response.json())
 //.then(commits => alert('not found'));
+//let params = new URL(document.location).searchParams;
+//let id = params.get("Produit.id");
+//console.log(Produit.id);
+
 let params = new URL(document.location).searchParams;
-let id = params.get("Produit.id");
+let id = params.get("id");
+fetch(`http://localhost:3000/api/teddies/+${id}`)
+    .then(function(response) {
+        return response.json();
+    })
+    .catch(function() {
+
+    });
