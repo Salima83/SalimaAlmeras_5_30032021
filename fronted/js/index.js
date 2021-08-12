@@ -19,7 +19,7 @@ async function renderProduits() {
     let html = '';
     Produits.forEach(Produit => {
         let htmlSegment = `
-       
+        
                            <div class="row">
                            <div class="col-12 col-lg-4">
                            <div class="card">
@@ -28,10 +28,11 @@ async function renderProduits() {
                             <div class="card-body">
                             <h2>${Produit.name} </h2>
                             <p class="price">${Produit.price}</p>
-                            <a href="product.html?${"_id[i]"}" id="Produit__link" class="Produit__link">voir l'article</a>
+                            <a href="product.html?id=${Produit.id} id="Produit__link" class="Produit__link">voir l'article</a>
                         </div>
                         </div>
                         </div>
+                        
                          `;
 
         html += htmlSegment;
