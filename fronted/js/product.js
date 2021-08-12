@@ -2,7 +2,7 @@
 
 //const queryString_url_id = window.location.search;
 //console.log(queryString_url_id);
-//const id = queryString_url_id.slice(1);
+//const id = queryString_url_id.slice(0);
 //console.log(id);
 
 //methode2
@@ -11,7 +11,7 @@
 
 //const id = urlSearchParams.get("id");
 //console.log(id);
-
+//
 //let url = ('http://localhost:3000/api/teddies/' + href);
 //fetch("http://localhost:3000/api/teddies/" + href)
 //href = search_params.get('id')
