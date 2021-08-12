@@ -30,11 +30,20 @@
 //}
 
 let params = new URL(document.location).searchParams;
-let Produit_id = params.get("id");
-fetch("http://localhost:3000/api/teddies/+${Produit_id}")
-    .then(function(response) {
-        return response.json();
-    })
-    .catch(function() {
+let id = params.get("id");
 
-    });
+//function ProduitById(id) {
+//let rep = await fetch("http://localhost:3000/api/teddies/" + id, { method: 'GET' });
+//let response = await rep.json();
+//return reponse;
+//}
+async function getProduits(id) {
+    let url = 'Produits.json';
+    try {
+        let res = await fetch("http://localhost:3000/api/teddies/" + id, { method: 'GET' })
+        return await res.json();
+
+    } catch (error) {
+        console.log(error);
+    }
+}
