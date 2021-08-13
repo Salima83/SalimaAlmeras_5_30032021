@@ -1,6 +1,7 @@
 let params = new URL(document.location).searchParams;
 let id = params.get("id");
-getProduct(id)
+
+getProduits(id)
     .then(product => {
         console.log(product)
             //display product
@@ -14,4 +15,6 @@ async function getProduits(id) {
     } catch (error) {
         console.log(error);
     }
+
+
 }

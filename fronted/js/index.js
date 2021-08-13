@@ -38,10 +38,19 @@ async function renderProduits() {
         html += htmlSegment;
     });
 
+    // global variable
+    let getProduit = "id";
+
+    function getProduit() {
+        // local variable
+        getProduit = 'id';
+        console.log(getProduit); // which message?
+    }
+
+
 
     let row = document.querySelector('.row');
     row.innerHTML = html;
 }
 
 renderProduits();
-product = getProduct(id)
