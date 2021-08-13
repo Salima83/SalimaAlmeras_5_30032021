@@ -38,14 +38,7 @@ async function renderProduits() {
         html += htmlSegment;
     });
 
-    // global variable
-    let getProduit = "id";
 
-    function getProduit() {
-        // local variable
-        getProduit = 'id';
-        console.log(getProduit); // which message?
-    }
 
 
 
