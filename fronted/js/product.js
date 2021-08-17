@@ -15,17 +15,23 @@ function renderContainer(Produit) {
                            <h2>${Produit.name} </h2>
                            <p class="price">${Produit.price/100}.00€</p>
                            <p class="discriptio">${Produit.description}</p>
-                        <form>
-                           <label for="option_produit">choisir</label>
-                        <select name="option_produit"id="option_produit">
+                        
+                          <div class="product-quantity">
+                          <label for="tedNum">Quantité :</label>
+                          <input id="tedNum" type="number" name="tedNum" value="1" min="1">
+                          </div>
+                          <select name="option_produit"id="option_produit">
                            <option value="option_1">${Produit.colors}</option>
                            <option value="option_2">${Produit.colors}</option>
-                        </select>
-                        </form>
+                          </select>
+
+                        
+
                         <button id="btn-envoyer" type="button" name"btn-envoyer">Ajouter au panier</button>
                     </div>
                        </div>
                        </div> `
+
     containerEl.innerHTML = container;
 
 }
@@ -59,13 +65,15 @@ renderProduits(id)
             addItem(id)
 
             //Création du produit qui sera ajouté au panier
-            let produitAdded = {
-                name: Name,
-                price: parseFloat(Price.innerHTML),
-                _id: id,
+            /* let produitAdded = {
+                 name: Name,
+                 price: parseFloat(Price.innerHTML),
+                 _id: id,
+                 quantity:''*/
 
-            };
+
         })
+
 
 
 
