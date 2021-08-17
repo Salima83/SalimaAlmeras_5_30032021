@@ -16,7 +16,7 @@ function renderContainer(Produit) {
                            <p class="price">${Produit.price/100}.00€</p>
                            <p class="discriptio">${Produit.description}</p>
                         <form>
-                           <label for="option_produit"></label>
+                           <label for="option_produit">choisir</label>
                         <select name="option_produit"id="option_produit">
                            <option value="option_1">${Produit.colors}</option>
                            <option value="option_2">${Produit.colors}</option>
@@ -41,9 +41,9 @@ function addItem(id) {
     panier.push(id)
     panier = JSON.stringify(panier) //RETRANSFORME EN JSON
     localStorage.setItem('panier', panier); //STOCKER
-
-
     console.log(panier);
+
+
 }
 
 
@@ -54,9 +54,20 @@ renderProduits(id)
         renderContainer(Produit)
             //selectionner l'element par click
         const buttonElement = document.getElementById('btn-envoyer');
+        console.log('btn-envoyer');
         buttonElement.addEventListener('click', function(event) {
             addItem(id)
+
+            //Création du produit qui sera ajouté au panier
+            let produitAdded = {
+                name: Name,
+                price: parseFloat(Price.innerHTML),
+                _id: id,
+
+            };
         })
+
+
 
     });
 
