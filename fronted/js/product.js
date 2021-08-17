@@ -1,49 +1,75 @@
-let Url = new URL('http://localhost:3000/api/teddies/${id}')
 let params = new URL(document.location).searchParams;
 let id = params.get("id");
 console.log(id);
 
+function renderContainer(Produit) {
+    //Selection de la class ou on vas injecter le code HTML
 
-renderProduits(id)
-    .then(produit => {
-        console.log(produit);
-        //display produit
-    });
-
-
-async function renderProduits(id) {
-
-    try {
-        let response = await fetch(`http://localhost:3000/api/teddies/${id}`, { method: 'GET' })
-        return await response.json();
-        console.log(response);
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-//Selection de la class ou on vas injecter le code HTML//
-
-const containerEl = document.querySelector("#container");
-//la structure
-
-const container = ` 
+    const containerEl = document.querySelector("#container");
+    //la structure
+    const container = ` 
                         <div id="container-produit">
                         <div class="card">
                         <div class="card-body">
-                           <img src="${Produit.imageUrl}" alt="teddie"/>
+                           <img src="${Produit.imageUrl}" alt="ours" class="img-thumbnail">
                            <h2>${Produit.name} </h2>
                            <p class="price">${Produit.price/100}.00€</p>
                            <p class="discriptio">${Produit.description}</p>
                         <form>
                            <label for="option_produit"></label>
                         <select name="option_produit"id="option_produit">
-                           <option value="option_1"option_1</option>
-                           <option value="option_2"option_2</option>
+                           <option value="option_1">${Produit.colors}</option>
+                           <option value="option_2">${Produit.colors}</option>
                         </select>
                         </form>
-                        <button id="btn-envoyer" type="submit" name"btn-envoyer">Commander l'article</button>
+                        <button id="btn-envoyer" type="button" name"btn-envoyer">Ajouter au panier</button>
                     </div>
                        </div>
                        </div> `
-Produit.innerHTML = container;
+    containerEl.innerHTML = container;
+
+}
+
+//AJOUT DU PRODUIT au panier
+function addItem(id) {
+    let panier = localStorage.getItem('panier'); //recuperer
+    panier = JSON.parse(panier) // PARSE LE JSON
+        //si le panier n' existe pas
+    if (panier === null) {
+        panier = []
+    }
+    panier.push(id)
+    panier = JSON.stringify(panier) //RETRANSFORME EN JSON
+    localStorage.setItem('panier', panier); //STOCKER
+
+
+    console.log(panier);
+}
+
+
+renderProduits(id)
+    .then(Produit => {
+        console.log(Produit);
+        //display produit
+        renderContainer(Produit)
+            //selectionner l'element par click
+        const buttonElement = document.getElementById('btn-envoyer');
+        buttonElement.addEventListener('click', function(event) {
+            addItem(id)
+        })
+
+    });
+
+
+async function renderProduits(id) {
+
+    try {
+
+        let response = await fetch(`http://localhost:3000/api/teddies/${id}`, { method: 'GET' })
+
+        return await response.json();
+
+    } catch (error) {
+        console.log(error);
+    }
+}
