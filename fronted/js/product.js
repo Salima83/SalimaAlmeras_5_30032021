@@ -49,6 +49,15 @@ function addItem(id) {
     localStorage.setItem('panier', panier); //STOCKER
     console.log(panier);
 
+    //Création du produit qui sera ajouté au panier
+    /* let produitAdded = {
+         name: Name,
+         price: parseFloat(Price.innerHTML),
+         quantity: parseFloat(document.querySelector("#tedNum").value),
+         _id: id,
+
+
+     };*/
 
 }
 
@@ -64,18 +73,7 @@ renderProduits(id)
         buttonElement.addEventListener('click', function(event) {
             addItem(id)
 
-            //Création du produit qui sera ajouté au panier
-            /* let produitAdded = {
-                 name: Name,
-                 price: parseFloat(Price.innerHTML),
-                 _id: id,
-                 quantity:''*/
-
-
         })
-
-
-
 
     });
 
