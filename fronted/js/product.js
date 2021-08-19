@@ -75,6 +75,7 @@ renderProduits(id)
 
         })
 
+
     });
 
 

@@ -32,3 +32,28 @@ panier.forEach(id => {
 
     })
     //console.log('apres', products);
+async function getProducts() {
+    let products = await getProducts();
+    let html = '';
+    panier.forEach(id => {
+        let htmlSegment = `
+            
+                               <div class="container">
+                               <div class="card">
+                                <img src="${Produit.imageUrl}" alt="ours" class="img-thumbnail">
+                                <div class="card-body">
+                                <h2>${Produit.name} </h2>
+                                <p class="price">${Produit.price/100}.00€</p>
+
+                            </div>
+                            </div>
+                            
+                            
+                             `;
+
+        html += htmlSegment;
+    });
+
+    let container = document.querySelector('container');
+    container.innerHTML = html;
+}
