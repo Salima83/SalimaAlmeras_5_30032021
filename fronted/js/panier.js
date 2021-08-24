@@ -32,28 +32,27 @@ panier.forEach(id => {
 
     })
     //console.log('apres', products);
-async function getProducts() {
-    let products = await getProducts();
-    let html = '';
-    panier.forEach(id => {
-        let htmlSegment = `
+function renderProducts(Product) {
+    //Selection de la class ou on vas injecter le code HTML
+
+    const productsEl = document.querySelector("products");
+    //la structure
+    const products = `
             
-                               <div class="container">
+                               <div class="products">
                                <div class="card">
-                                <img src="${Produit.imageUrl}" alt="ours" class="img-thumbnail">
+                                <img src="${product.imageUrl}" alt="ours" class="img-thumbnail">
                                 <div class="card-body">
-                                <h2>${Produit.name} </h2>
-                                <p class="price">${Produit.price/100}.00€</p>
+                                <h2>${product.name} </h2>
+                                <p class="price">${product.price/100}.00€</p>
+                                <button id="btn-supprimer" type="button" name"btn-supprimer">Supprimer</button>
+                                <button id="confirm-command">Passer la commande</button>
 
                             </div>
                             </div>
-                            
-                            
+                            </div>
                              `;
 
-        html += htmlSegment;
-    });
+    productsEl.innerHTML = products;
 
-    let container = document.querySelector('container');
-    container.innerHTML = html;
 }
