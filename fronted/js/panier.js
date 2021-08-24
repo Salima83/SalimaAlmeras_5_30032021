@@ -51,31 +51,3 @@ function supprimer(id) {
     console.log("supprimer id", id);
 
 }
-
-
-//console.log('apres', products);
-/*async function getProducts() {
-    let product = await getProduct();
-    let html = '';
-    products.forEach(product => {
-        let htmlSegment = `
-                
-                                   <div class="products">
-                                   <div class="card">
-                                    <img src="${product.imageUrl}" alt="ours" class="img-thumbnail">
-                                    <div class="card-body">
-                                    <h2>${product.name} </h2>
-                                    <p class="price">${product.price/100}.00€</p>
-                                    <button id="btn-supprimer" type="button" name"btn-supprimer">Supprimer</button>
-                                    <button id="confirm-command">Passer la commande</button>
-
-                                </div>
-                                </div>
-                                </div>
-                                 `;
-
-        products.innerHTML = (".products");
-
-    })
-}
-getProduct();*/
