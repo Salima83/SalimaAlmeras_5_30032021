@@ -1,6 +1,7 @@
 let params = new URL(document.location).searchParams;
 let id = params.get("id");
 console.log(id);
+let article;
 
 function renderContainer(Produit) {
     //Selection de la class ou on vas injecter le code HTML
@@ -44,7 +45,7 @@ function addItem(id) {
     if (panier === null) {
         panier = []
     }
-    panier.push(id)
+    panier.push(article)
     panier = JSON.stringify(panier) //RETRANSFORME EN JSON
     localStorage.setItem('panier', panier); //STOCKER
     console.log(panier);
@@ -65,6 +66,7 @@ function addItem(id) {
 renderProduits(id)
     .then(Produit => {
         console.log(Produit);
+        article = Produit;
         //display produit
         renderContainer(Produit)
             //selectionner l'element par click
