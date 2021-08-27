@@ -13,6 +13,7 @@ function renderContainer(Produit) {
                         <div class="card">
                         <div class="card-body">
                            <img src="${Produit.imageUrl}" alt="ours" class="img-thumbnail">
+                           <div>
                            <h2>${Produit.name} </h2>
                            <p class="price">${Produit.price/100}.00€</p>
                            <p class="discriptio">${Produit.description}</p>
@@ -22,10 +23,9 @@ function renderContainer(Produit) {
                            <option value="option_2">${Produit.colors}</option>
                           </select>
 
-                        
-
                         <button id="btn-envoyer" type="button" name"btn-envoyer">Ajouter au panier</button>
-                    </div>
+                        </div>
+                       </div>
                        </div>
                        </div> `
 
