@@ -21,14 +21,15 @@ async function renderProduits() {
         let htmlSegment = `
         
                            <div class="row">
-                           <div class="col-12 col-lg-4">
+                           
+                           <div class="col-sm-6">
                            <div class="card">
                            
                             <img src="${Produit.imageUrl}" alt="ours" class="img-thumbnail">
                             <div class="card-body">
                             <h2>${Produit.name} </h2>
                             <p class="price">${Produit.price/100}.00€</p>
-                            <a href="product.html?id=${Produit._id}" id="Produit__link" class="Produit__link">voir l'article</a>
+                            <a href="product.html?id=${Produit._id}" id="Produit__link" class="btn btn-primary">voir l'article</a>
                         </div>
                         </div>
                         </div>

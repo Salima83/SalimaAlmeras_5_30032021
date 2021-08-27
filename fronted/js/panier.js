@@ -6,21 +6,8 @@ console.log(panier);
 if (panier === null || panier === []) {
     console.log('panier vide');
 }
-/*async function getProduct(id) {
-    try {
-        let response = await fetch(`http://localhost:3000/api/teddies/${id}`, { methode: 'GET' })
-        return await response.json();
 
-    } catch (error) {
-        console.log(error);
-    }
-}
-let products = []; //initialiser une variable
-//console.log('avant', products);
-//let i = 0;
-//let ids = [];*/
-
-
+/////
 
 function supprimer(index) {
     console.log("supprimer index", index);
@@ -35,10 +22,6 @@ function afficherPanier() {
     html.innerHTML = "";
     panier.forEach((article, index) => {
         // console.log(++i, id);
-        //if (ids.indexOf(id) === -1) {
-        /*getProduct().then(product => {
-            if (product !== undefined) {
-                products.push(product);*/
 
         console.log(article);
         total = total + article.price;
@@ -62,3 +45,5 @@ function afficherPanier() {
 
 }
 afficherPanier();
+//////
+//formulaire de confirmation methode POST

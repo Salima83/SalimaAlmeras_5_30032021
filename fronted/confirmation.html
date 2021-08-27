@@ -6,14 +6,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>page confirmation</title>
+    <!-- -->
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+
+
 </head>
+<header>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+                <a class="navbar-brand" href="index.html">teddy</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav pull-right">
+                    <li class="active"><a href="index.html">Home</a></li>
+
+                    <li class=" active">
+                        <a href="panier.html">
+
+                            <ion-icon name="basket"></ion-icon>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+
+</header>
 
 <body>
     <main>
 
 
         <div class="recap">
-            <div class="confirm">
+            <div class="confirmation">
                 <h2>Votre commande a bien été prise en compte</h2>
                 <p class="total">Le montant total est de <span class="display-price"></span></p>
                 <p class="orderid">Votre numéro de commande est : <span class="display-orderid"></span></p>
@@ -47,5 +82,6 @@
 
 
 <script src="js/confirmation.js"></script>
+<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 
 </html>
