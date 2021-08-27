@@ -16,11 +16,7 @@ function renderContainer(Produit) {
                            <h2>${Produit.name} </h2>
                            <p class="price">${Produit.price/100}.00€</p>
                            <p class="discriptio">${Produit.description}</p>
-                        
-                          <div class="product-quantity">
-                          <label for="tedNum">Quantité :</label>
-                          <input id="tedNum" type="number" name="tedNum" value="1" min="1">
-                          </div>
+                    
                           <select name="option_produit"id="option_produit">
                            <option value="option_1">${Produit.colors}</option>
                            <option value="option_2">${Produit.colors}</option>
