@@ -77,9 +77,15 @@ submit.addEventListener("click", (e) => {
              erreur.innerText = "Votre email n'est pas valide";*/
     } else {
         // si le formulaire est valide
-        let productsBay = [];
-        productsBay.push(panier);
-        console.log(panier);
+        panier.forEach(article) => {
+            let productsBay = [];
+            productsBay.push("article"._id);
+            console.log(panier);
+
+        }
+
+
+
         // productsBay.push(localStorage);
         const order = {
             contact: {
@@ -89,6 +95,7 @@ submit.addEventListener("click", (e) => {
                 address: inputAdress.value,
                 email: inputEmail.value,
             },
+
             products: productsBay,
             productsBay: ["5be9c8541c9d440000665243", "5be9c8541c9d440000665243"]
         };
