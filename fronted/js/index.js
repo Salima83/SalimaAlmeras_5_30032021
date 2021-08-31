@@ -22,10 +22,10 @@ async function renderProduits() {
         
                            <div class="row">
                            
-                           <div class="col-sm-6">
+                           <div class="col-lg-3 col-md-4 col-6">
                            <div class="card">
                            
-                            <img src="${Produit.imageUrl}" alt="ours" class="img-thumbnail">
+                            <img src="${Produit.imageUrl}" alt="ours" class="img-fluid img-thumbnail">
                             <div class="card-body">
                             <h2>${Produit.name} </h2>
                             <p class="price">${Produit.price/100}.00€</p>

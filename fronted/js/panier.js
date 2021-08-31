@@ -78,6 +78,7 @@ submit.addEventListener("click", (e) => {
     } else {
         // si le formulaire est valide
         let productsBay = [];
+        productsBay.push(panier);
         console.log(panier);
         // productsBay.push(localStorage);
         const order = {
@@ -117,7 +118,8 @@ submit.addEventListener("click", (e) => {
             .then((response) => response.json())
             .then((data) => {
 
-                console.log(data)
+                console.log(data);
+
                 localStorage.setItem("orderId", data.orderId);
                 localStorage.setItem("total", prixConfirmation[1]);
             })
