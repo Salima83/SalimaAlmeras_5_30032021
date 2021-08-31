@@ -47,3 +47,57 @@ function afficherPanier() {
 afficherPanier();
 //////
 //formulaire de confirmation methode POST
+function checkForm() {
+    const submit = documentquerySelector("#submit");
+    let inputFirstName = document.querySelector("#firstName");
+    let inputLaststName = document.querySelector("#lastName");
+    let inputAdress = document.querySelector("#adress");
+    let inputCity = document.querySelector("#city");
+    let inputEmail = document.querySelector("#email");
+
+}
+////
+submit.addEventListener("click", (e) => {
+    if (!inputFirstName.value ||
+        !inputLaststName.value ||
+        !inputCity.value ||
+        !inputEmail.value ||
+        !inputAdress.value ||
+    ) {
+        erreur.innerHTML = "Vous devez renseigner tous les champs !";
+        e.preventDefault();
+    } else if (isNaN(inputEmail.value)) {
+        e.preventDefault();
+        erreur.innerText = "Votre email n'est pas valide";
+    } else {
+        // si le formulaire est valide
+        let productsBay = [];
+        productsBay.push(localStorage);
+        const order = {
+            contact: {
+                firstName: inputFirstName.value,
+                lastName: inputLastName.value,
+                city: inputCity.value,
+                address: inputAdress.value,
+                email: inputMail.value,
+            },
+            products: productsBay,
+        };
+        //  la requette POST 
+        const options = {
+            method: "POST",
+            body: JSON.stringify(order),
+            headers: { "Content-Type": "application/json" },
+        };
+        fetch("http://localhost:3000/api/teddies/order", options)
+            .then((response) => response.json())
+            .then((data) => {
+                localStorage.clear();
+                console.log(data)
+                localStorage.setItem("orderId", data.orderId);
+            })
+            .catch((err) => {
+                alert("Il y a eu une erreur : " + err);
+            });
+    }
+});
