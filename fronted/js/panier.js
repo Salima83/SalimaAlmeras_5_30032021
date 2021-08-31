@@ -77,10 +77,10 @@ submit.addEventListener("click", (e) => {
              e.preventDefault();
              erreur.innerText = "Votre email n'est pas valide";*/
     } else {
-        // si le formulaire est valide
+        // 
         panier.forEach((article) => {
             let productsBay = [];
-            productsBay.push([article._id]);
+            productsBay.push(article._id);
             console.log(panier);
         })
 
