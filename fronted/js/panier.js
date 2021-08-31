@@ -46,6 +46,8 @@ function afficherPanier() {
 }
 afficherPanier();
 //////
+let prixConfirmation = document.querySelector(".total").innerText;
+prixConfirmation = prixConfirmation.split(" :");
 const submit = document.querySelector("#submit");
 let inputFirstName = document.querySelector("#firstName");
 let inputLastName = document.querySelector("#lastName");
@@ -117,6 +119,7 @@ submit.addEventListener("click", (e) => {
 
                 console.log(data)
                 localStorage.setItem("orderId", data.orderId);
+                localStorage.setItem("total", prixConfirmation[1]);
             })
             .catch((err) => {
                 alert("Il y a eu une erreur : " + err);
