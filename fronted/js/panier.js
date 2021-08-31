@@ -46,6 +46,7 @@ function afficherPanier() {
 }
 afficherPanier();
 //////
+let productsBay = [];
 let prixConfirmation = document.querySelector(".total").innerText;
 prixConfirmation = prixConfirmation.split(" :");
 const submit = document.querySelector("#submit");
@@ -77,12 +78,14 @@ submit.addEventListener("click", (e) => {
              erreur.innerText = "Votre email n'est pas valide";*/
     } else {
         // si le formulaire est valide
-        panier.forEach(article) => {
+        panier.forEach((article) => {
             let productsBay = [];
-            productsBay.push("article"._id);
+            productsBay.push([article._id]);
             console.log(panier);
+        })
 
-        }
+
+
 
 
 
@@ -95,6 +98,7 @@ submit.addEventListener("click", (e) => {
                 address: inputAdress.value,
                 email: inputEmail.value,
             },
+
 
             products: productsBay,
             productsBay: ["5be9c8541c9d440000665243", "5be9c8541c9d440000665243"]
