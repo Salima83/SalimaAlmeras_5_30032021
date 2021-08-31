@@ -87,12 +87,12 @@
                     <form class="form">
                         <div class="name-and-lastname">
                             <div class="cart-card__form-line" id="bloc__name">
-                                <label for="FirstName">Prénom :</label>
-                                <input type="text" placeholder="Prénom" id="name" name="user_name" required>
+                                <label for="firstName">Prénom :</label>
+                                <input type="text" placeholder="Prénom" id="firstName" name="user_name" required>
                             </div>
                             <div class="cart-card__form-line" id="bloc__lastname">
                                 <label for="lastName">Nom :</label>
-                                <input type="text" placeholder="Nom" id="lastname" name="user_lastname" required>
+                                <input type="text" placeholder="Nom" id="lastName" name="user_lastname" required>
                             </div>
                         </div>
                         <div class="postal-and-city">
@@ -110,8 +110,8 @@
                             <input type="text" placeholder="Adresse de livraison" id="adress" name="user_adress" required>
                         </div>
                         <div class="cart-card__form-line" id="bloc__mail">
-                            <label for="mail">Adresse mail :</label>
-                            <input type="email" placeholder="Adresse mail" id="mail" name="user_mail" required>
+                            <label for="email">Adresse mail :</label>
+                            <input type="email" placeholder="Adresse email" id="email" name="user_mail" required>
                         </div>
 
                         <div class="erreur"></div>
@@ -119,7 +119,7 @@
                             <button id="submit" class="cart-card__form__btn btn-success">Commander</button>
                         </div>
                     </form>
-
+                    <p id="erreur"> </p>
                     <div class="added-to-cart-confirmation">
                         <p class="confirmation-text"></p>
                     </div>

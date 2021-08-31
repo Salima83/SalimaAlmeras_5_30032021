@@ -46,53 +46,75 @@ function afficherPanier() {
 }
 afficherPanier();
 //////
-//formulaire de confirmation methode POST
+const submit = document.querySelector("#submit");
+let inputFirstName = document.querySelector("#firstName");
+let inputLastName = document.querySelector("#lastName");
+let inputAdress = document.querySelector("#adress");
+let inputCity = document.querySelector("#city");
+let inputEmail = document.querySelector("#email");
+let erreur = document.querySelector("#erreur")
+    //formulaire de confirmation methode POST
 function checkForm() {
-    const submit = documentquerySelector("#submit");
-    let inputFirstName = document.querySelector("#firstName");
-    let inputLaststName = document.querySelector("#lastName");
-    let inputAdress = document.querySelector("#adress");
-    let inputCity = document.querySelector("#city");
-    let inputEmail = document.querySelector("#email");
+
 
 }
 ////
 submit.addEventListener("click", (e) => {
+    e.preventDefault();
+
     if (!inputFirstName.value ||
-        !inputLaststName.value ||
+        !inputLastName.value ||
         !inputCity.value ||
         !inputEmail.value ||
-        !inputAdress.value ||
+        !inputAdress.value
     ) {
         erreur.innerHTML = "Vous devez renseigner tous les champs !";
-        e.preventDefault();
-    } else if (isNaN(inputEmail.value)) {
-        e.preventDefault();
-        erreur.innerText = "Votre email n'est pas valide";
+
+        /* } else if (isNaN(inputEmail.value)) {
+             e.preventDefault();
+             erreur.innerText = "Votre email n'est pas valide";*/
     } else {
         // si le formulaire est valide
         let productsBay = [];
-        productsBay.push(localStorage);
+        console.log(panier);
+        // productsBay.push(localStorage);
         const order = {
             contact: {
                 firstName: inputFirstName.value,
                 lastName: inputLastName.value,
                 city: inputCity.value,
                 address: inputAdress.value,
-                email: inputMail.value,
+                email: inputEmail.value,
             },
             products: productsBay,
+            productsBay: ["5be9c8541c9d440000665243", "5be9c8541c9d440000665243"]
         };
+
         //  la requette POST 
         const options = {
             method: "POST",
             body: JSON.stringify(order),
             headers: { "Content-Type": "application/json" },
         };
+
+        // fetch("http://localhost:3000/api/teddies/order", options), {
+        //         method: 'POST',
+        //         headers: {
+        //             'Content-Type': 'application/json'
+        //         },
+        //         body: JSON.stringify(order, productsBay)
+        //     }
+        //     .then(response => {
+        //         return response.json()
+        //     })
+        //     .then(data =>
+        //         // this is the data we get after posting our data, do whatever you want with this data
+        //         console.log(data)
+        //     );
         fetch("http://localhost:3000/api/teddies/order", options)
             .then((response) => response.json())
             .then((data) => {
-                localStorage.clear();
+
                 console.log(data)
                 localStorage.setItem("orderId", data.orderId);
             })
