@@ -5,3 +5,4 @@ function displayOrderIdAndPrice() {
     totalConfirmation.innerText = localStorage.getItem("total");
     orderId.innerText = localStorage.getItem("orderId");
 }
+displayOrderIdAndPrice();

@@ -46,9 +46,8 @@ function afficherPanier() {
 }
 afficherPanier();
 //////
-let productsBay = [];
-let prixConfirmation = document.querySelector(".total").innerText;
-prixConfirmation = prixConfirmation.split(" :");
+let prixConfirmation = document.querySelector(".somme-total").innerText;
+prixConfirmation = prixConfirmation.split(" ");
 const submit = document.querySelector("#submit");
 let inputFirstName = document.querySelector("#firstName");
 let inputLastName = document.querySelector("#lastName");
@@ -78,18 +77,15 @@ submit.addEventListener("click", (e) => {
              erreur.innerText = "Votre email n'est pas valide";*/
     } else {
         // 
+        let productsBay = [];
         panier.forEach((article) => {
-            let productsBay = [];
+
             productsBay.push(article._id);
+            console.log(article._id);
             console.log(panier);
         })
 
 
-
-
-
-
-        // productsBay.push(localStorage);
         const order = {
             contact: {
                 firstName: inputFirstName.value,
@@ -101,7 +97,7 @@ submit.addEventListener("click", (e) => {
 
 
             products: productsBay,
-            productsBay: ["5be9c8541c9d440000665243", "5be9c8541c9d440000665243"]
+
         };
 
         //  la requette POST 
@@ -132,7 +128,9 @@ submit.addEventListener("click", (e) => {
                 console.log(data);
 
                 localStorage.setItem("orderId", data.orderId);
-                localStorage.setItem("total", prixConfirmation[1]);
+                localStorage.setItem("total", prixConfirmation[2]);
+                window.location = "confirmation.html";
+
             })
             .catch((err) => {
                 alert("Il y a eu une erreur : " + err);
