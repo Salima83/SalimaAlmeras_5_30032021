@@ -27,7 +27,7 @@ function afficherPanier() {
         total = total + article.price;
         html.innerHTML +=
             `<div class="card">
-                                        <img src="${article.imageUrl}" alt="ours" class="img-thumbnail">
+                                        <img src="${article.imageUrl}" alt="ours" class="img img-thumbnail">
                                         <div class="card-body">
                                         <h2>${article.name} </h2>
                                         <p class="price">${article.price/100}.00€</p>
@@ -72,9 +72,9 @@ submit.addEventListener("click", (e) => {
     ) {
         erreur.innerHTML = "Vous devez renseigner tous les champs !";
 
-        /* } else if (isNaN(inputEmail.value)) {
-             e.preventDefault();
-             erreur.innerText = "Votre email n'est pas valide";*/
+        /*} else if (isNaN(inputEmail.value)) {
+            e.preventDefault();
+            erreur.innerText = "Votre email n'est pas valide";*/
     } else {
         // 
         let productsBay = [];
@@ -107,20 +107,7 @@ submit.addEventListener("click", (e) => {
             headers: { "Content-Type": "application/json" },
         };
 
-        // fetch("http://localhost:3000/api/teddies/order", options), {
-        //         method: 'POST',
-        //         headers: {
-        //             'Content-Type': 'application/json'
-        //         },
-        //         body: JSON.stringify(order, productsBay)
-        //     }
-        //     .then(response => {
-        //         return response.json()
-        //     })
-        //     .then(data =>
-        //         // this is the data we get after posting our data, do whatever you want with this data
-        //         console.log(data)
-        //     );
+        //     
         fetch("http://localhost:3000/api/teddies/order", options)
             .then((response) => response.json())
             .then((data) => {

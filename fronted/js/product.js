@@ -6,17 +6,17 @@ let article;
 function renderContainer(Produit) {
     //Selection de la class ou on vas injecter le code HTML
 
-    const containerEl = document.querySelector("#container");
+    const containerEl = document.querySelector("#container-sm");
     //la structure
     const container = ` 
-                        <div id="container-produit">
-                        <div class="card">
+                        
+                        <div class=""card">
                         <div class="card-body">
-                           <img src="${Produit.imageUrl}" alt="ours" class="img-thumbnail">
+                           <img src="${Produit.imageUrl}" alt="ours" class="img mx-auto d-block">
                            <div>
-                           <h2>${Produit.name} </h2>
-                           <p class="price">${Produit.price/100}.00€</p>
-                           <p class="discriptio">${Produit.description}</p>
+                           <h2 class="card-title">${Produit.name} </h2>
+                           <p class="card-price">${Produit.price/100}.00€</p>
+                           <p class="card-discription">${Produit.description}</p>
                     
                           <select name="option_produit"id="option_produit">
                            <option value="option_1">${Produit.colors}</option>
@@ -45,17 +45,6 @@ function addItem(id) {
     panier = JSON.stringify(panier) //RETRANSFORME EN JSON
     localStorage.setItem('panier', panier); //STOCKER
     console.log(panier);
-
-    //Création du produit qui sera ajouté au panier
-    /* let produitAdded = {
-         name: Name,
-         price: parseFloat(Price.innerHTML),
-         quantity: parseFloat(document.querySelector("#tedNum").value),
-         _id: id,
-
-
-     };*/
-
 }
 
 
