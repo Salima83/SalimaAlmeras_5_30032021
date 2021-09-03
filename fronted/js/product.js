@@ -8,25 +8,24 @@ function renderContainer(Produit) {
 
     const containerEl = document.querySelector("#container-sm");
     //la structure
+    let sel = `<select >
+    <option value="option_1">Tan</option>
+    <option value="option_2">Chocolate</option>
+    <option value="option_3">Black</option>
+    <option value="option_2">White</option>
+   </select>`
     const container = ` 
                         
                         <div class=""card">
-                        <div class="card-body">
+                        <div class="card-body1">
                            <img src="${Produit.imageUrl}" alt="ours" class="img mx-auto d-block">
                            <div>
                            <h2 class="card-title">${Produit.name} </h2>
                            <p class="card-price">${Produit.price/100}.00€</p>
                            <p class="card-discription">${Produit.description}</p>
-                    
-                          <select name="option_produit"id="option_produit">
-                           <option value="option_1">${Produit.colors}</option>
-                           <option value="option_2">${Produit.colors}</option>
-                          </select>
-
+                             ${sel}
                         <button id="btn-envoyer" type="button" name"btn-envoyer">Ajouter au panier</button>
-                        </div>
-                       </div>
-                       </div>
+                        
                        </div> `
 
     containerEl.innerHTML = container;

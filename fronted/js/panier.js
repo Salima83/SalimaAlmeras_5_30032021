@@ -28,7 +28,7 @@ function afficherPanier() {
         html.innerHTML +=
             `<div class="card">
                                         <img src="${article.imageUrl}" alt="ours" class="img img-thumbnail">
-                                        <div class="card-body">
+                                        <div class="card-body1">
                                         <h2>${article.name} </h2>
                                         <p class="price">${article.price/100}.00€</p>
     
