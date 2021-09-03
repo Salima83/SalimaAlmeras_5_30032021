@@ -23,7 +23,7 @@ async function renderProduits() {
                            <div class="row">
                            
                            <div class="col-6">                      
-                           <div class="thumbnail img-responsive">
+                           <div class="thumbnail img-responsive ">
                             <img src="${Produit.imageUrl}" alt="ours" class="thumbnail img-responsive">
                             <div class="card-body1">
                             <h2  class="nom-teddy">${Produit.name} </h2>

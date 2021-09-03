@@ -32,7 +32,7 @@ function afficherPanier() {
                                         <h2>${article.name} </h2>
                                         <p class="price">${article.price/100}.00€</p>
     
-                                        <button id="btn-supprimer" type="button" onclick="supprimer(${index})" name"btn-supprimer">Supprimer</button>
+                                        <button id="btn-supprimer" type="btn btn-outline-danger mb-2" onclick="supprimer(${index})" name"btn-supprimer">Supprimer</button>
                                         
                                     </div>
                                     </div>`
@@ -41,6 +41,7 @@ function afficherPanier() {
     total = total / 100;
     console.log(total);
     html.innerHTML += `   <p class="somme-total"> prix total ${total}€</p>`
+    localStorage.setItem("total", total);
 
 
 }
@@ -115,7 +116,6 @@ submit.addEventListener("click", (e) => {
                 console.log(data);
 
                 localStorage.setItem("orderId", data.orderId);
-                localStorage.setItem("total", prixConfirmation[2]);
                 window.location = "confirmation.html";
 
             })

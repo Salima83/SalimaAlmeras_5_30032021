@@ -16,16 +16,18 @@ function renderContainer(Produit) {
    </select>`
     const container = ` 
                         
-                        <div class=""card">
+                        <div class="card mb-3">
                         <div class="card-body1">
                            <img src="${Produit.imageUrl}" alt="ours" class="img mx-auto d-block">
-                           <div>
+                           </div>
+                           
                            <h2 class="card-title">${Produit.name} </h2>
+                           
                            <p class="card-price">${Produit.price/100}.00€</p>
                            <p class="card-discription">${Produit.description}</p>
                              ${sel}
                         <button id="btn-envoyer" type="button" name"btn-envoyer">Ajouter au panier</button>
-                        
+                       </div>
                        </div> `
 
     containerEl.innerHTML = container;
@@ -33,7 +35,7 @@ function renderContainer(Produit) {
 }
 
 //AJOUT DU PRODUIT au panier
-function addItem(id) {
+function addItem() {
     let panier = localStorage.getItem('panier'); //recuperer
     panier = JSON.parse(panier) // PARSE LE JSON
         //si le panier n' existe pas
@@ -57,7 +59,7 @@ renderProduits(id)
         const buttonElement = document.getElementById('btn-envoyer');
         console.log('btn-envoyer');
         buttonElement.addEventListener('click', function(event) {
-            addItem(id)
+            addItem()
 
         })
 
