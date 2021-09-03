@@ -56,11 +56,11 @@ let inputCity = document.querySelector("#city");
 let inputEmail = document.querySelector("#email");
 let erreur = document.querySelector("#erreur")
     //formulaire de confirmation methode POST
-function checkForm() {
+    /*function checkForm() {
 
 
-}
-////
+    }*/
+    ////
 submit.addEventListener("click", (e) => {
     e.preventDefault();
 
