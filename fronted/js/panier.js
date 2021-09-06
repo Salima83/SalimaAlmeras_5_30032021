@@ -1,6 +1,6 @@
 let panier = localStorage.getItem('panier');
 let html = document.querySelector(".products")
-
+    ///
 panier = JSON.parse(panier);
 console.log(panier);
 if (panier === null || panier === []) {
@@ -21,8 +21,6 @@ function afficherPanier() {
     let total = 0;
     html.innerHTML = "";
     panier.forEach((article, index) => {
-        // console.log(++i, id);
-
         console.log(article);
         total = total + article.price;
         html.innerHTML +=
@@ -32,7 +30,7 @@ function afficherPanier() {
                                         <h2>${article.name} </h2>
                                         <p class="price">${article.price/100}.00€</p>
     
-                                        <button id="btn-supprimer" type="btn btn-outline-danger mb-2" onclick="supprimer(${index})" name"btn-supprimer">Supprimer</button>
+                                        <button id="btn-supprimer" type="btn-supprimé" onclick="supprimer(${index})" name"btn-supprimer">Supprimer</button>
                                         
                                     </div>
                                     </div>`
@@ -49,6 +47,7 @@ afficherPanier();
 //////
 let prixConfirmation = document.querySelector(".somme-total").innerText;
 prixConfirmation = prixConfirmation.split(" ");
+//formulaire de confirmation methode POST
 const submit = document.querySelector("#submit");
 let inputFirstName = document.querySelector("#firstName");
 let inputLastName = document.querySelector("#lastName");
@@ -56,28 +55,29 @@ let inputAdress = document.querySelector("#adress");
 let inputCity = document.querySelector("#city");
 let inputEmail = document.querySelector("#email");
 let erreur = document.querySelector("#erreur")
-    //formulaire de confirmation methode POST
-    /*function checkForm() {
 
-
-    }*/
-    ////
-submit.addEventListener("click", (e) => {
-    e.preventDefault();
-
+function checkForm() {
     if (!inputFirstName.value ||
         !inputLastName.value ||
         !inputCity.value ||
         !inputEmail.value ||
         !inputAdress.value
-    ) {
-        erreur.innerHTML = "Vous devez renseigner tous les champs !";
+    )
+        return false
+    else {
+        return true
+    }
+}
+////
+submit.addEventListener("click", (e) => {
+    e.preventDefault();
 
-        /*} else if (isNaN(inputEmail.value)) {
-            e.preventDefault();
-            erreur.innerText = "Votre email n'est pas valide";*/
-    } else {
-        // 
+    if (checkForm()) {
+        // si le panier est vide la commande n est pas envoyée
+        if (panier.length === 0) {
+            return
+        }
+
         let productsBay = [];
         panier.forEach((article) => {
 
@@ -117,10 +117,14 @@ submit.addEventListener("click", (e) => {
 
                 localStorage.setItem("orderId", data.orderId);
                 window.location = "confirmation.html";
-
+                localStorage.removeItem("panier");
             })
             .catch((err) => {
                 alert("Il y a eu une erreur : " + err);
             });
+    } else {
+        erreur.innerHTML = "Vous devez renseigner tous les champs !";
+
+
     }
 });

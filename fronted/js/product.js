@@ -8,12 +8,14 @@ function renderContainer(Produit) {
 
     const containerEl = document.querySelector("#container-sm");
     //la structure
-    let sel = `<select >
-    <option value="option_1">Tan</option>
-    <option value="option_2">Chocolate</option>
-    <option value="option_3">Black</option>
-    <option value="option_2">White</option>
-   </select>`
+    let option = "<select>";
+    Produit.colors.forEach((color, index) => {
+        option += `<option value="option${index}">${color}</option>`;
+
+
+    });
+    option += "</select>";
+    console.log(option);
     const container = ` 
                         
                         <div class="card mb-3">
@@ -25,7 +27,7 @@ function renderContainer(Produit) {
                            
                            <p class="card-price">${Produit.price/100}.00€</p>
                            <p class="card-discription">${Produit.description}</p>
-                             ${sel}
+                             ${option}
                         <button id="btn-envoyer" type="button" name"btn-envoyer">Ajouter au panier</button>
                        </div>
                        </div> `
