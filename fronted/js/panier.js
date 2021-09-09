@@ -38,7 +38,7 @@ function afficherPanier() {
     })
     total = total / 100;
     console.log(total);
-    html.innerHTML += `   <p class="somme-total"> prix total ${total}€</p>`
+    html.innerHTML += `   <p class="somme-total"> prix total ${total}.00€</p>`
     localStorage.setItem("total", total);
 
 
@@ -67,6 +67,7 @@ function checkForm() {
     else {
         return true
     }
+
 }
 ////
 submit.addEventListener("click", (e) => {
@@ -76,6 +77,22 @@ submit.addEventListener("click", (e) => {
         // si le panier est vide la commande n est pas envoyée
         if (panier.length === 0) {
             return
+        }
+
+        function checkEmail(email) {
+            var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        }
+
+        function validate() {
+            let inputEmail = document.querySelector("#email");
+
+            if (checkEmail(email)) {
+                alert('Adresse e-mail valide');
+            } else {
+                alert('Adresse e-mail non valide');
+            }
+            return false;
         }
 
         let productsBay = [];
