@@ -21,6 +21,7 @@ function supprimer(index) {
 function afficherPanier() {
     let total = 0;
     html.innerHTML = "";
+
     panier.forEach((article, index) => {
         console.log(article);
         total = total + article.price;
@@ -41,9 +42,14 @@ function afficherPanier() {
     console.log(total);
     html.innerHTML += `   <p class="somme-total"> prix total ${total}.00€</p>`
     localStorage.setItem("total", total);
-
+    //
+    if (panier.length === 0) {
+        document.querySelector(".form").style.display = "none";
+        document.querySelector(".somme-total").style.display = "none";
+    }
 
 }
+
 afficherPanier();
 //////
 let prixConfirmation = document.querySelector(".somme-total").innerText;
