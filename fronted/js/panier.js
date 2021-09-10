@@ -68,7 +68,25 @@ function checkForm() {
         return true
     }
 
+    function validateEmail(input, requiredMsg, invalidMsg) {
+        // si la valeur n est pas vide
+        if (!hasValue(input, requiredMsg)) {
+            return false;
+        }
+        // valider format email
+        const emailRegex =
+            /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+        const email = input.value.trim();
+        if (!emailRegex.test(email)) {
+            return showError(input, invalidMsg);
+        }
+        return true;
+    }
+
+
 }
+
 ////
 submit.addEventListener("click", (e) => {
     e.preventDefault();
@@ -79,21 +97,6 @@ submit.addEventListener("click", (e) => {
             return
         }
 
-        function checkEmail(email) {
-            var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            return re.test(email);
-        }
-
-        function validate() {
-            let inputEmail = document.querySelector("#email");
-
-            if (checkEmail(email)) {
-                alert('Adresse e-mail valide');
-            } else {
-                alert('Adresse e-mail non valide');
-            }
-            return false;
-        }
 
         let productsBay = [];
         panier.forEach((article) => {
