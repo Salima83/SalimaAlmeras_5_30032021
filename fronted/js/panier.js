@@ -5,6 +5,7 @@ panier = JSON.parse(panier);
 console.log(panier);
 if (panier === null || panier === []) {
     console.log('panier vide');
+    panier = [];
 }
 
 /////
@@ -57,35 +58,40 @@ let inputEmail = document.querySelector("#email");
 let erreur = document.querySelector("#erreur")
 
 function checkForm() {
+
     if (!inputFirstName.value ||
         !inputLastName.value ||
         !inputCity.value ||
         !inputEmail.value ||
         !inputAdress.value
-    )
+    ) {
+        erreur.innerText = "Vous devez renseigner tous les champs"
         return false
-    else {
-        return true
-    }
-
-    function validateEmail(input, requiredMsg, invalidMsg) {
-        // si la valeur n est pas vide
-        if (!hasValue(input, requiredMsg)) {
+    } else {
+        //les champs sont tous remplis
+        //Vérifier l'email
+        if (validateEmail(inputEmail)) {
+            return true
+        } else {
+            erreur.innerText = "L'email est invalide";
             return false;
         }
-        // valider format email
-        const emailRegex =
-            /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-        const email = input.value.trim();
-        if (!emailRegex.test(email)) {
-            return showError(input, invalidMsg);
-        }
-        return true;
     }
-
-
 }
+
+function validateEmail(input) {
+    // valider format email
+    const emailRegex =
+        /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    const email = input.value.trim();
+    if (!emailRegex.test(email)) {
+        return false;
+    }
+    return true;
+}
+
+
 
 ////
 submit.addEventListener("click", (e) => {
@@ -142,9 +148,5 @@ submit.addEventListener("click", (e) => {
             .catch((err) => {
                 alert("Il y a eu une erreur : " + err);
             });
-    } else {
-        erreur.innerHTML = "Vous devez renseigner tous les champs !";
-
-
     }
 });
