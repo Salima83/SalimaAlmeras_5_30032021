@@ -101,7 +101,7 @@ function validateName() {
     let regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
     let Name = document.querySelector('.name').value;
     if (!regName.test(Name)) {
-        alert('Please enter your full name (firstName & lastName).');
+        alert(' renseigner (firstName & lastName).');
         document.querySelector('.name').focus();
         return false;
     } else {
