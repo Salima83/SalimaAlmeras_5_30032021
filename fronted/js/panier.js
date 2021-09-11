@@ -96,6 +96,20 @@ function validateEmail(input) {
     }
     return true;
 }
+///
+function validateName() {
+    let regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+    let Name = document.querySelector('.name').value;
+    if (!regName.test(Name)) {
+        alert('Please enter your full name (firstName & lastName).');
+        document.querySelector('.name').focus();
+        return false;
+    } else {
+        alert('Valid name given.');
+        return true;
+    }
+}
+///
 
 
 
