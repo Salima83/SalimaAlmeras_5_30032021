@@ -99,7 +99,7 @@ function validateEmail(input) {
 ///
 function validateName() {
     let regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
-    let Name = document.querySelector('.name').value;
+    let name = document.querySelector('.name').value;
     if (!regName.test(Name)) {
         alert(' renseigner (firstName & lastName).');
         document.querySelector('.name').focus();
