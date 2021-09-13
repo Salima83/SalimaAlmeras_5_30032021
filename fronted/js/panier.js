@@ -77,6 +77,19 @@ function checkForm() {
         //les champs sont tous remplis
         //Vérifier l'email
         if (validateEmail(inputEmail)) {
+            //Si l'email est valide, onvérifie les prénoms etc.
+            if (!validateName(inputFirstName)) {
+                erreur.innerText = "Le prénom n'est pas valide";
+                return false;
+            }
+            if (!validateName(inputLastName)) {
+                erreur.innerText = "Le nom n'est pas valide";
+                return false;
+            }
+            if (!validateName(inputCity)) {
+                erreur.innerText = "La ville n'est pas valide";
+                return false;
+            }
             return true
         } else {
             erreur.innerText = "L'email est invalide";
@@ -97,23 +110,20 @@ function validateEmail(input) {
     return true;
 }
 ///
-function validateName() {
-    let regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
-    let name = document.querySelector('.name').value;
-    if (!regName.test(Name)) {
-        alert(' renseigner (firstName & lastName).');
-        document.querySelector('.name').focus();
+function validateName(input) {
+    //On autorise que les lettres maj et miniscule + trait d'union
+    let regName = /^[a-zA-Z-]+$/;
+    let name = input.value;
+    if (!regName.test(name)) {
+        alert('Valeur incorrect');
+        input.focus();
         return false;
     } else {
-        alert('Valid name given.');
         return true;
     }
 }
 ///
 
-
-
-////
 submit.addEventListener("click", (e) => {
     e.preventDefault();
 
