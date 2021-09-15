@@ -21,26 +21,20 @@ async function renderProduits() {
         let htmlSegment = `
         
                            <div class="row">
-                           
                            <div class="col-6">                      
-                           <div class="thumbnail img-responsive ">
+                           <div class="thumbnail img-responsive">
                             <img src="${Produit.imageUrl}" alt="ours" class="thumbnail img-responsive">
-                            <div class="card-body1">
-                            <h2  class="nom-teddy">${Produit.name} </h2>
+                            <div class="card-body">
+                            <h2  class="card-teddy">${Produit.name} </h2>
                             <p class="price">${Produit.price/100}.00€</p>
                             <a href="product.html?id=${Produit._id}" id="Produit__link" class="btn btn-outline-info mb-2">voir l'article</a>
                         </div>
                         </div>
                         </div>
-                        </div>
-                        
-                         `;
+                        </div>`;
 
         html += htmlSegment;
     });
-
-
-
 
 
     let row = document.querySelector('.row');

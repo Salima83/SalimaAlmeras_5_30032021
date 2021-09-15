@@ -18,19 +18,23 @@ function renderContainer(Produit) {
     console.log(option);
     const container = ` 
                         
-                        <div class="card mb-3">
-                        <div class="card-body1">
+                        
+    <div class="card">
+    
                            <img src="${Produit.imageUrl}" alt="ours" class="img mx-auto d-block">
-                           </div>
                            
+                        <div class="card-body">
                            <h2 class="card-title">${Produit.name} </h2>
-                           
                            <p class="card-price">${Produit.price/100}.00€</p>
                            <p class="card-discription">${Produit.description}</p>
                              ${option}
                         <button id="btn-envoyer" type="button" name"btn-envoyer">Ajouter au panier</button>
+                       
+                       
+                       </div> 
                        </div>
-                       </div> `
+                       
+                       `
 
     containerEl.innerHTML = container;
 

@@ -2,10 +2,13 @@
         font-family: "playball";
     }
     
+    .tx-text-center {
+        padding-top: 10%;
+    }
+    
     .card-body1 {
         display: flex;
         justify-content: space-between;
-        font-size: 29px;
         font-weight: 700;
     }
     
@@ -43,6 +46,21 @@
         justify-content: center;
         padding-top: 5rem;
     }
+    
+    .card {
+        display: flex;
+        justify-content: center;
+        padding-top: 25%;
+    }
+    
+    .card-body {
+        margin-left: 2rem;
+    }
+    
+    .card1 {
+        display: flex;
+        justify-content: center;
+    }
     /*---------------page panier--------------------*/
     
     .products-container {
@@ -61,7 +79,8 @@
         display: flex;
         justify-content: flex-start;
         border-bottom: 4px solid lightgrey;
-        margin: 0 auto
+        margin: 0 auto;
+        padding-top: 60px;
     }
     
     .product-title {
@@ -87,10 +106,33 @@
     .product {
         width: 45%;
     }
+    
+    .card-mb-3 {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 2rem;
+        padding-top: 2rem;
+    }
+    
+    .footer {
+        position: relative;
+    }
     /*---------------------formulaire--------------------*/
     
     .cart-card__form {
         display: flex;
         justify-content: center;
         padding-top: 10rem;
+    }
+    /*--bouton--*/
+    
+    #btn-supprimer {
+        background-color: red;
+        border: transparent;
+    }
+    
+    @media (min-width: 1025px) {
+        .h-custom {
+            height: 100vh !important;
+        }
     }

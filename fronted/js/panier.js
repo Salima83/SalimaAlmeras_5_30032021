@@ -26,16 +26,33 @@ function afficherPanier() {
         console.log(article);
         total = total + article.price;
         html.innerHTML +=
-            `<div class="card">
-                                        <img src="${article.imageUrl}" alt="ours" class="img img-thumbnail">
-                                        <div class="card-body1">
-                                        <h2>${article.name} </h2>
-                                        <p class="price">${article.price/100}.00€</p>
-    
-                                        <button id="btn-supprimer" type="btn-supprimé" onclick="supprimer(${index})" name"btn-supprimer">Supprimer</button>
+            `                   
+            <div class="card-mb-3">
+                 <div class="card-body">
+                 <div class="d-flex justify-content-between">
+                  <div class="d-flex flex-row align-items-center">       
+                       <div >
+                                        <img src="${article.imageUrl}" class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
+                                        </div>
+                                        <div class="ms-3">
+                                        <h5>${article.name} </h5>
                                         
+                                        
+                                        <div class="d-flex flex-row align-items-center">
+
+                                        <div style="width: 80px;">
+                                        <p class="mb-0">${article.price/100}.00€</p>
+                                        
+                                        <button id="btn-supprimer" type="btn-supprimé" onclick="supprimer(${index})" name"btn-supprimer">Supprimer</button>
+                                        </div>
+                                        </div>
+                                    </div>    
                                     </div>
-                                    </div>`
+                                   </div>
+                                    </div>
+                                    </div>
+                                    <hr>
+                                    `
 
     })
     total = total / 100;
