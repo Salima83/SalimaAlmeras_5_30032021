@@ -17,12 +17,10 @@ function renderContainer(Produit) {
     option += "</select>";
     console.log(option);
     const container = ` 
-                        
-                        
-    <div class="card">
-    
-                           <img src="${Produit.imageUrl}" alt="ours" class="img mx-auto d-block">
-                           
+                        <div class="row row-cols-1 row-cols-md-2 g-4">
+                        <div class="col">
+                        <div class="card"style="width: 18rem;">
+                           <img src="${Produit.imageUrl}" alt="ours" class="card-img-top">
                         <div class="card-body">
                            <h2 class="card-title">${Produit.name} </h2>
                            <p class="card-price">${Produit.price/100}.00€</p>
@@ -30,10 +28,10 @@ function renderContainer(Produit) {
                              ${option}
                         <button id="btn-envoyer" type="button" name"btn-envoyer">Ajouter au panier</button>
                        
-                       
-                       </div> 
-                       </div>
-                       
+                        </div> 
+                        </div>
+                        </div> 
+                        </div>
                        `
 
     containerEl.innerHTML = container;
