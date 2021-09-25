@@ -1,6 +1,6 @@
 let params = new URL(document.location).searchParams;
 let id = params.get("id");
-console.log(id);
+
 let article;
 
 function renderContainer(Produit) {
@@ -15,7 +15,7 @@ function renderContainer(Produit) {
 
     });
     option += "</select>";
-    console.log(option);
+
     const container = ` 
                         <div class="row row-cols-1 row-cols-md-2 g-4">
                         <div class="col">
@@ -49,19 +49,18 @@ function addItem() {
     panier.push(article)
     panier = JSON.stringify(panier) //RETRANSFORME EN JSON
     localStorage.setItem('panier', panier); //STOCKER
-    console.log(panier);
 }
 
 
 renderProduits(id)
     .then(Produit => {
-        console.log(Produit);
+
         article = Produit;
         //display produit
         renderContainer(Produit)
             //selectionner l'element par click
         const buttonElement = document.getElementById('btn-envoyer');
-        console.log('btn-envoyer');
+
         buttonElement.addEventListener('click', function(event) {
             addItem()
 
@@ -74,7 +73,6 @@ renderProduits(id)
 async function renderProduits(id) {
 
     try {
-
         let response = await fetch(`http://localhost:3000/api/teddies/${id}`, { method: 'GET' })
 
         return await response.json();

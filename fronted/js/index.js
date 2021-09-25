@@ -22,20 +22,18 @@ async function renderProduits() {
         
                            <div class="row">
                            <div class="col">                     
-
                            <div class="card h-100">                     
                            <div class="card-img-top">
                             <img src="${Produit.imageUrl}" alt="ours" class="card-img-top">
-                            
-                             <div class= "card-body">
+                           <div class= "card-body">
                             <h2 class="card-title" >${Produit.name} </h2>
                             <p class="card-price">${Produit.price/100}.00€</p>
                             <a href="product.html?id=${Produit._id}" id="Produit__link" class="btn btn-outline-info mb-2">voir l'article</a>
-                            </div>
-                            </div>
-                            </div>
-                            </div>
-                            </div>`;
+                          </div>
+                          </div>
+                          </div>
+                          </div>
+                          </div>`;
 
         html += htmlSegment;
     });

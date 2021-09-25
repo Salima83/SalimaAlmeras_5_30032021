@@ -2,18 +2,18 @@ let panier = localStorage.getItem('panier');
 let html = document.querySelector(".products")
     ///
 panier = JSON.parse(panier);
-console.log(panier);
+
 if (panier === null || panier === []) {
-    console.log('panier vide');
+
     panier = [];
 }
 
 /////
 
 function supprimer(index) {
-    console.log("supprimer index", index);
+
     panier.splice(index, 1)
-    console.log(panier);
+
     localStorage.setItem("panier", JSON.stringify(panier))
     afficherPanier();
 }
@@ -23,26 +23,21 @@ function afficherPanier() {
     html.innerHTML = "";
 
     panier.forEach((article, index) => {
-        console.log(article);
+
         total = total + article.price;
         html.innerHTML +=
-            `                   
-            <div class="card-mb-3">
-                 <div class="card-body">
-                 <div class="d-flex justify-content-between">
-                  <div class="d-flex flex-row align-items-center">       
-                       <div >
+            `             <div class="d-flex justify-content-between">
+                          <div class="d-flex flex-row align-items-center  mb-4">      
+                          <div class="card-mb-3">
+                          <div class="card-body">
+                          <div >
                                         <img src="${article.imageUrl}" class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
                                         </div>
                                         <div class="ms-3">
                                         <h5>${article.name} </h5>
-                                        
-                                        
                                         <div class="d-flex flex-row align-items-center">
-
                                         <div style="width: 80px;">
                                         <p class="mb-0">${article.price/100}.00€</p>
-                                        
                                         <button id="btn-supprimer" type="btn-supprimé" onclick="supprimer(${index})" name"btn-supprimer">Supprimer</button>
                                         </div>
                                         </div>
@@ -56,7 +51,7 @@ function afficherPanier() {
 
     })
     total = total / 100;
-    console.log(total);
+
     html.innerHTML += `   <p class="somme-total"> prix total ${total}.00€</p>`
     localStorage.setItem("total", total);
     //
@@ -155,10 +150,7 @@ submit.addEventListener("click", (e) => {
         panier.forEach((article) => {
 
             productsBay.push(article._id);
-            console.log(article._id);
-            console.log(panier);
         })
-
 
         const order = {
             contact: {
@@ -185,8 +177,6 @@ submit.addEventListener("click", (e) => {
         fetch("http://localhost:3000/api/teddies/order", options)
             .then((response) => response.json())
             .then((data) => {
-
-                console.log(data);
 
                 localStorage.setItem("orderId", data.orderId);
                 window.location = "confirmation.html";
