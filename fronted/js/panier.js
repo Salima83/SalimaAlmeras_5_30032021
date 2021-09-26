@@ -20,7 +20,7 @@ function supprimer(index) {
 
 function afficherPanier() {
     let total = 0;
-    html.innerHTML = "";
+    html.innerHTML = ""; // pour supprimer le contenue dans le code
 
     panier.forEach((article, index) => {
 
