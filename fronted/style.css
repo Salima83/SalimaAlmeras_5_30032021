@@ -39,14 +39,7 @@
         font-size: medium;
     }
     
-    .titre_2 {
-        position: relative;
-        font-size: 46px;
-        line-height: 50px;
-        color: #5e6265;
-    }
-    
-    h2.p {
+    .h2.p {
         font-family: "playball";
         display: flex;
         font-size: 25px;
@@ -57,16 +50,15 @@
         object-fit: cover;
     }
     
-    .thumbnail {
-        margin-bottom: 6px;
-        display: flex;
-        flex-wrap: wrap;
-    }
-    
     .somme-total {
         display: flex;
         justify-content: center;
         padding-top: 5rem;
+        font-size: medium;
+    }
+    
+    .total {
+        font-size: medium;
     }
     
     .card {
@@ -81,11 +73,6 @@
     
     .col {
         padding-bottom: 2rem;
-    }
-    
-    .card1 {
-        display: flex;
-        justify-content: center;
     }
     /*---------------page panier--------------------*/
     
@@ -107,10 +94,6 @@
         border-bottom: 4px solid lightgrey;
         margin: 0 auto;
         padding-top: 60px;
-    }
-    
-    .product-title {
-        width: 45%;
     }
     
     .price {
@@ -152,6 +135,22 @@
     #btn-supprimer {
         background-color: red;
         border: transparent;
+    }
+    
+    #btn-envoyer {
+        -webkit-transition-duration: 0.4s;
+        /* Safari */
+        transition-duration: 0.4s;
+        border: 2px transparent solid;
+        /* Green */
+        font-size: 13px;
+    }
+    
+    #btn-envoyer:hover {
+        background-color: #4CAF50;
+        /* Green */
+        color: white;
+        font-size: 13px;
     }
     
     @media (min-width: 1025px) {
