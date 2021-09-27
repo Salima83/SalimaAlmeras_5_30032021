@@ -103,13 +103,6 @@
         align-items: center;
     }
     
-    .text-confirmation {
-        display: flex;
-        justify-content: center;
-        border-bottom: 1px solid lightgrey;
-        padding-top: 25%;
-    }
-    
     .total.somme-total {
         align-items: center;
         font-size: medium;
