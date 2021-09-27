@@ -37,6 +37,8 @@
     .tx-text-center {
         padding-bottom: 10%;
         font-size: medium;
+        font-weight: 600;
+        padding-top: 10rem;
     }
     
     .h2.p {
